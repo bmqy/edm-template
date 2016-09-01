@@ -152,7 +152,6 @@ gulp.task('clearPublish', function () {
         .pipe(clean());
 });
 gulp.task('publish', ['clearPublish'], function () {
-    //return gulp.src('dist/*/*.?(html|jpg|png)')
     return gulp.src(['dist/html/index.html', 'dist/image/*.?(jpg|png)'])
         .pipe(plumber())
         .pipe(gulp.dest('./'+ publishSrc+ '/iamge'));
