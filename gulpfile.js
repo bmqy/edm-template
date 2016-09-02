@@ -5,24 +5,24 @@ var oTestFlag = true; // 线上/线下环境开关。“true”为线下测试�
 
 // 将文本转换成json数据
 var htmlCodes = [
-    '白酒半年报“初品” 区域品牌逐步复苏',
-    'http://zixun.ibicn.com/d1283050.html',
-    '奶粉新政实施细则出炉 国内市场配方数或降八成',
-    'http://zixun.ibicn.com/d1283149.html',
-    '五金行业将以智能制造为突破口加快“走出去”',
-    'http://zixun.ibicn.com/d1283148.html',
-    '国内成品油价迎来第五次上调',
-    'http://zixun.ibicn.com/d1283142.html',
-    '中国汽车出口量 4年缩水四成',
-    'http://zixun.ibicn.com/d1283139.html',
-    '玻璃价格短期上涨可期 预计年内达到高峰',
-    'http://zixun.ibicn.com/d1283052.html',
-    '反垄断调查历时4年 利乐“谜案”何时了结？',
-    'http://zixun.ibicn.com/d1282986.html',
-    '新三板工业机器人概念有哪些值得关注？',
-    'http://zixun.ibicn.com/d1282999.html',
-    '天然气管输定价新规初拟 油气改革再进一步',
-    'http://zixun.ibicn.com/d1283015.html'
+    '车企大佬年薪榜:长城汽车董事长魏建军570万居首',
+    'http://zixun.ibicn.com/d1270903.html',
+    '跨境电商“正规军”化后 试验区进口单量一周锐减逾60%',
+    'http://zixun.ibicn.com/d1270900.html',
+    '工具五金行业产值过千亿 向服务型制造升级',
+    'http://zixun.ibicn.com/d1270892.html',
+    '食用油行业进入寡头时代 小品牌面临生死存亡',
+    'http://zixun.ibicn.com/d1270890.html',
+    '饮料罐装过程中灭菌技术的整合应用',
+    'http://zixun.ibicn.com/d1270876.html',
+    '色彩在水性工业漆中的作用与应用',
+    'http://zixun.ibicn.com/d1270884.html',
+    '化工行业或驱动煤炭消费增速 行业仍存较大空间',
+    'http://zixun.ibicn.com/d1270778.html',
+    '“十三五”能源规划将突出目标导向和问题导向',
+    'http://zixun.ibicn.com/d1270693.html',
+    '钢结构牵头转型升级 建材行业引曙光',
+    'http://zixun.ibicn.com/d1270848.html'
 ];
 
 var gulp = require('gulp');
@@ -164,7 +164,7 @@ gulp.watch(['gulpfile.js', 'src/*.html', 'src/iamge/*.?(jpg|png)'], ['nunjucks']
 gulp.task('default', function () {
     if(oTestFlag){
         var timer = setInterval(function () {
-            if(list1.title !== '' && list1.title !== undefined){
+            if(typeof list1.content !== 'undefined' && typeof list2.content !== 'undefined' && typeof list3.content !== 'undefined' && typeof list4.content !== 'undefined'){
                 gulp.start('nunjucks');
                 clearInterval(timer);
             }
