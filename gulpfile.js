@@ -3,7 +3,7 @@
  */
 var oTestFlag = true; // 线上/线下环境开关。“true”为线下测试环境；“false”为线上发布环境
 
-// 将文本转换成json数据
+// 将文本转换成数组
 var htmlCodes = [
     '车企大佬年薪榜:长城汽车董事长魏建军570万居首',
     'http://zixun.ibicn.com/d1270903.html',
@@ -35,6 +35,7 @@ var BufferHelper = require('bufferhelper'); // 解决中文编码问题
 var iconvLite = require('iconv-lite'); // 解决编码转换模块
 var cheerio = require('cheerio'); // dom元素操作模块
 
+// 将文本数组转换成json数据
 var arrData = [];
 for(var i=0; i<htmlCodes.length; i=i+2){
     var _temp2json = {};
