@@ -1,28 +1,28 @@
 /**
  * Created by bmqy on 2016/8/19.
  */
-var oTestFlag = true; // 线上/线下环境开关。“true”为线下测试环境；“false”为线上发布环境
+var oTestFlag = false; // 线上/线下环境开关。“true”为线下测试环境；“false”为线上发布环境
 
 // 将文本转换成数组
 var htmlCodes = [
-    '车企大佬年薪榜:长城汽车董事长魏建军570万居首',
-    'http://zixun.ibicn.com/d1270903.html',
-    '跨境电商“正规军”化后 试验区进口单量一周锐减逾60%',
-    'http://zixun.ibicn.com/d1270900.html',
-    '工具五金行业产值过千亿 向服务型制造升级',
-    'http://zixun.ibicn.com/d1270892.html',
-    '食用油行业进入寡头时代 小品牌面临生死存亡',
-    'http://zixun.ibicn.com/d1270890.html',
-    '饮料罐装过程中灭菌技术的整合应用',
-    'http://zixun.ibicn.com/d1270876.html',
-    '色彩在水性工业漆中的作用与应用',
-    'http://zixun.ibicn.com/d1270884.html',
-    '化工行业或驱动煤炭消费增速 行业仍存较大空间',
-    'http://zixun.ibicn.com/d1270778.html',
-    '“十三五”能源规划将突出目标导向和问题导向',
-    'http://zixun.ibicn.com/d1270693.html',
-    '钢结构牵头转型升级 建材行业引曙光',
-    'http://zixun.ibicn.com/d1270848.html'
+    '新电改“放闸” 万亿市场呼之欲出',
+    'http://zixun.ibicn.com/d1284326.html',
+    '五粮液上调出厂价 中高端白酒掀涨价潮',
+    'http://zixun.ibicn.com/d1284304.html',
+    '消费级无人机孕育百亿蓝海',
+    'http://zixun.ibicn.com/d1284474.html',
+    '低温乳酸菌饮料“退烧” 低糖版是出路？',
+    'http://zixun.ibicn.com/d1284494.html',
+    '进口红酒压缩国产红酒生存空间',
+    'http://zixun.ibicn.com/d1284468.html',
+    '煤电联动上调电价可能性很小 火电企业将迎来倒闭潮',
+    'http://zixun.ibicn.com/d1284424.html',
+    '港口码头也能作为不动产 进行抵押了',
+    'http://zixun.ibicn.com/d1284393.html',
+    '新能源车现“政策市” 限购城市销量持续走高',
+    'http://zixun.ibicn.com/d1284319.html',
+    '2016年中国天然气行业发展现状分析及市场前景展望',
+    'http://zixun.ibicn.com/d1284497.html'
 ];
 
 var gulp = require('gulp');
@@ -51,7 +51,7 @@ var sYear = oDate.getFullYear();
 var sMonth = oDate.getMonth() + 1;
 sMonth = sMonth < 10 ? '0'+sMonth : sMonth;
 var sDay = oDate.getDate();
-sDay = sDay.length < 2 ? '0'+sDay : sDay;
+sDay = sDay < 10 ? '0'+sDay : sDay;
 var sDate = sYear +'/'+ sYear + sMonth + sDay; // 此路径对应ftp资源路径
 // 生成发布版本目录名
 var publishSrc = sMonth +'.'+ sDay;
@@ -155,7 +155,7 @@ gulp.task('clearPublish', function () {
 gulp.task('publish', ['clearPublish'], function () {
     return gulp.src(['dist/html/index.html', 'dist/image/*.?(jpg|png)'])
         .pipe(plumber())
-        .pipe(gulp.dest('./'+ publishSrc+ '/iamge'));
+        .pipe(gulp.dest('./'+ publishSrc+ '/image'));
 });
 
 // 监测模板和图片变动
