@@ -1,7 +1,7 @@
 /**
  * Created by bmqy on 2016/8/19.
  */
-var oTestFlag = false; // 线上/线下环境开关。“true”为线下测试环境；“false”为线上发布环境
+var oTestFlag = true; // 线上/线下环境开关。“true”为线下测试环境；“false”为线上发布环境
 
 // 将文本转换成数组
 var htmlCodes = [
