@@ -2,7 +2,7 @@
  * Created by bmqy on 2016/9/13.
  */
 
-var doc = require('./doc'); // edm文档内容
+var doc = require('../doc'); // edm文档内容
 var func = require('./function'); // 处理函数
 
 exports.settings = {

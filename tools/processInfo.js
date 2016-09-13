@@ -2,7 +2,7 @@
  * Created by bmqy on 2016/9/13.
  */
 
-var doc = require('./doc');
+var doc = require('../doc');
 var crawler = require('crawler');
 
 exports.infosArr = [];
@@ -25,7 +25,6 @@ exports.getInfo = function() {
             _infoUnitJson.content = $('.body_left .text').text().replace(/\r*\n*\t*/gi, '').substring(0, 100) + '...';
             exports.infosArr.push(_infoUnitJson);
             j++;
-            console.log(exports.infosArr);
             return exports.infosArr;
         }
     });

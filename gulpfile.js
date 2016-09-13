@@ -9,7 +9,7 @@ var rename = require('gulp-rename');
 var clean = require('gulp-clean');
 
 var config = require('./tools/config'); // edm配置项
-var doc = require('./tools/doc');
+var doc = require('./doc');
 var getInfo = require('./tools/processInfo'); // 获取咨询讯息
 
 gulp.task('cleanHtml', function () {
