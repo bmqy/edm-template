@@ -48,7 +48,7 @@ gulp.task('clearPublish', function () {
 gulp.task('publish', ['clearPublish'], function () {
     return gulp.src(['dist/html/index.html', 'dist/image/*.?(jpg|png)'])
         .pipe(plumber())
-        .pipe(gulp.dest('./'+ config.pathPublish+ '/image'));
+        .pipe(gulp.dest('./'+ config.settings.pathPublish+ '/image'));
 });
 
 // 监测模板和图片变动
