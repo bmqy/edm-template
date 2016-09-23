@@ -45,7 +45,7 @@ gulp.task('clearPublish', function () {
         .pipe(plumber())
         .pipe(clean());
 });
-gulp.task('publish', ['clearPublish'], function () {
+gulp.task('publish', ['clearPublish', 'nunjucks'], function () {
     return gulp.src(['dist/html/index.html', 'dist/image/*.?(jpg|png)'])
         .pipe(plumber())
         .pipe(gulp.dest('./'+ config.settings.pathPublish+ '/image'));
@@ -65,6 +65,11 @@ gulp.task('default', function () {
         }, 500);
     }
     else{
-        gulp.start('publish');
+        var timer2 = setInterval(function () {
+            if(getInfo.infosArr.length == (doc.doc2arr.length/2)){
+                gulp.start('publish');
+                clearInterval(timer2);
+            }
+        }, 500);
     }
 });
