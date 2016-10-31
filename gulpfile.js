@@ -12,23 +12,24 @@ var config = require('./tools/config'); // edm配置项
 var doc = require('./doc');
 var getInfo = require('./tools/processInfo'); // 获取咨询讯息
 
+
 gulp.task('cleanHtml', function () {
     return gulp.src('dist/html', {read: false})
         .pipe(plumber())
         .pipe(clean());
 });
 gulp.task('cleanImage', function () {
-    return gulp.src('dist/', {read: false})
+    return gulp.src('dist/image', {read: false})
         .pipe(plumber())
         .pipe(clean())
 });
-gulp.task('pullImage', ['cleanImage'], function () {
+gulp.task('pullImage', ['cleanImage', 'cleanHtml'], function () {
     return gulp.src('src/image/*.?(jpg|png)')
         .pipe(plumber())
         .pipe(gulp.dest('dist/image'));
 });
 
-gulp.task('nunjucks', ['cleanHtml', 'pullImage'], function () {
+gulp.task('nunjucks', ['pullImage', 'clearPublish'], function () {
     return gulp.src('src/template.html')
         .pipe(plumber())
         .pipe(nunjucksRender({data: {
@@ -45,7 +46,7 @@ gulp.task('clearPublish', function () {
         .pipe(plumber())
         .pipe(clean());
 });
-gulp.task('publish', ['clearPublish', 'nunjucks'], function () {
+gulp.task('publish', ['clearPublish'], function () {
     return gulp.src(['dist/html/index.html', 'dist/image/*.?(jpg|png)'])
         .pipe(plumber())
         .pipe(gulp.dest('./'+ config.settings.pathPublish+ '/image'));

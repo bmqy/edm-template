@@ -7,7 +7,7 @@ var func = require('./function'); // 处理函数
 
 exports.settings = {
     // 线上/线下开关：“true”为线下测试、“false”为线上发布
-    debug: false,
+    debug: true,
     // 发布版本目录
     pathPublish: func.getMonth() +'.'+ func.getDay(),
     // 测试图片资源路径
