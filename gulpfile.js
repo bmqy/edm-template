@@ -29,7 +29,7 @@ gulp.task('pullImage', ['cleanImage', 'cleanHtml'], function () {
         .pipe(gulp.dest('dist/image'));
 });
 
-gulp.task('nunjucks', ['pullImage', 'clearPublish'], function () {
+gulp.task('nunjucks', ['pullImage'], function () {
     return gulp.src('src/template.html')
         .pipe(plumber())
         .pipe(nunjucksRender({data: {
