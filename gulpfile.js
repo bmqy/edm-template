@@ -46,8 +46,8 @@ gulp.task('clearPublish', function () {
         .pipe(plumber())
         .pipe(clean());
 });
-gulp.task('publish', ['clearPublish'], function () {
-    return gulp.src(['dist/html/index.html', 'dist/image/*.?(jpg|png)'])
+gulp.task('publish', ['nunjucks','clearPublish'], function () {
+    gulp.src(['dist/html/index.html', 'dist/image/*.?(jpg|png)'])
         .pipe(plumber())
         .pipe(gulp.dest('./'+ config.settings.pathPublish+ '/image'));
 });
